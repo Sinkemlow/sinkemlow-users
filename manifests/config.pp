@@ -31,12 +31,15 @@ class users::config {
     uid        => $users::app_user_id,
     gid        => $users::app_group_name,
     managehome => true,
+    require    => Group[$users::app_group_name],
   }
   
   file { '/var/log/app/':
     ensure  => 'directory',
     recurse => true,
     owner   => $users::app_user_name,
+    group   => $users::app_group_name,
+    mode    => '1775',
     require => User[$users::app_user_name],
   }
 }
