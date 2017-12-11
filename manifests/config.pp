@@ -49,7 +49,7 @@ class users::config {
     path         => '/var/log/app/*.log',
     compress     => true,
     copytruncate => true,
-    rotate       => '28',
+    rotate       => 28,
     rotate_every => day,
     missingok    => true,
     create       => true,
