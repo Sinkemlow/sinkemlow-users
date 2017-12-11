@@ -36,7 +36,7 @@ class users::config {
   
   file { '/var/log/app/':
     ensure  => 'directory',
-    recurse => true,
+    recurse => false,
     owner   => $users::app_user_name,
     group   => $users::app_group_name,
     mode    => '1775',
