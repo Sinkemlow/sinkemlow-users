@@ -42,5 +42,17 @@ class users::config {
     mode    => '1775',
     require => User[$users::app_user_name],
   }
+  
+  logrotate::rule { 'app':
+    create_owner => root,
+    create_group => root,
+    path         => /var/log/app/*.log,
+    compress     => true,
+    copytruncate => true,
+    rotate       => 28,
+    rotate_every => day,
+    missingok    => true,
+    create       => true,
+    create_mode  => 664,
+  }
 }
-
