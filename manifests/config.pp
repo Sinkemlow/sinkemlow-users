@@ -46,7 +46,7 @@ class users::config {
   logrotate::rule { 'app':
     create_owner => root,
     create_group => root,
-    path         => /var/log/app/*.log,
+    path         => '/var/log/app/*.log',
     compress     => true,
     copytruncate => true,
     rotate       => 28,
