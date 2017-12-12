@@ -54,5 +54,7 @@ class users::config {
     missingok    => true,
     create       => true,
     create_mode  => '664',
+    su_owner     => 'root',
+    su_group     => 'syslog',
   }
 }
